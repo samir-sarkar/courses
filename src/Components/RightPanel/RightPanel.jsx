@@ -1,7 +1,7 @@
 import SideContent from "../../Components/SideContent/SideContent";
 import styles from "./RightPanel.module.scss";
 
-const RightPanel = () => {
+const RightPanel = (props) => {
   return (
     <div className={styles.container}>
       <SideContent />

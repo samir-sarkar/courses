@@ -35,3 +35,27 @@
     padding: 10px 0;
   }
 }
+
+.videoContainer {
+  position: relative;
+}
+
+.playBtn {
+  position: absolute;
+  top: 50%; /* Move the button to the vertical center */
+  left: 50%; /* Move the button to the horizontal center */
+  transform: translate(-50%, -50%); /* Center the button */
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adjust the size of the play icon as needed */
+.playBtn svg {
+  width: 50px; /* Adjust the size of the icon */
+  height: 100%; /* Maintain aspect ratio */
+  fill: rgba($color: #4c4848, $alpha: 1);
+}

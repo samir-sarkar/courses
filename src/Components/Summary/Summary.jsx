@@ -8,7 +8,6 @@ import styles from "./Summary.module.scss";
 import { useState } from "react";
 
 const dummyData = {
-  sourceImageUrl: "/logo.png",
   courseRating: 5,
   courseTitle: "Web Security",
   rateCount: 19,
@@ -38,7 +37,7 @@ const Summary = ({data = dummyData}) => {
   return (
     <div className={styles.conatiner}>
       {data.breadcrumbItems.length && <Breadcrumbs items={data.breadcrumbItems} />}
-      <img src={data.sourceImageUrl} alt="Logo" height={30}/>
+      <img src="universityLogo.png" alt="Logo" height={30}/>
       <h1>{data.courseTitle}</h1>
       <div className={styles.rating}>
         <span role="img" aria-label={`Five out of ${data.courseRating} stars`} >
