@@ -1,0 +1,57 @@
+
+.conatiner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: white;
+  padding: 30px;
+  line-height: 1.5;
+  gap: 12px;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  span {
+    line-height: 1;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  svg {
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    margin-right: 4px;
+    text-align: center;
+    border-radius: 4px;
+    fill: white;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.empty {
+  background-color: #6f7074;
+}
+
+.fill {
+  background-color: blue;
+}
+
+span {
+  margin-bottom: 15px;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}

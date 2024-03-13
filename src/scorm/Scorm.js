@@ -1,6 +1,6 @@
-import {SCORM} from 'pipwerks-scorm-api-wrapper';
+import { SCORM } from 'pipwerks-scorm-api-wrapper';
 
-let Scorm = {
+const ScormHelper = {
   init() {
     SCORM.init();
   },
@@ -14,6 +14,6 @@ let Scorm = {
     SCORM.set('cmi.core.lesson_status', 'completed');
     SCORM.save();
   }
-}
+};
 
-export default Scorm;
+export default ScormHelper;

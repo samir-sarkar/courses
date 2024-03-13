@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.thumbImage {
+  height: 200px;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 2px;
+}
+.innerWrapper {
+  background-color: white;
+  padding: 30px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    border-bottom: 1px solid #ededed ;
+    padding: 10px 0;
+  }
+}
