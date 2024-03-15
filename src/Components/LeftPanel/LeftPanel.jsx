@@ -3,11 +3,12 @@ import CourseDetails from "../../Components/CourseDetail/CourseDetails"
 
 import styles from "./LeftPanel.module.scss";
 
-const LeftPanel = () => {
+const LeftPanel = (props) => {
+  const {data} = props
   return (
     <div className={styles.containerBox}>
-      <Summary />
-      <CourseDetails />
+      <Summary data={data}/>
+      <CourseDetails data={data}/>
     </div>
   )
 };

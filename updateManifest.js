@@ -42,7 +42,7 @@ function updateManifestFile(files) {
     // Append each file to the resources section of the manifest
     const filesList = files.map(file => `<file href="${file}"/>`).join('\n');
     const updatedManifestContent = `${beforeResource}\n${filesList}\n${afterResource}`;
-    console.log(filesList);
+    
     // Write the updated content back to the manifest file
     fs.writeFileSync(manifestPath, updatedManifestContent);
 }

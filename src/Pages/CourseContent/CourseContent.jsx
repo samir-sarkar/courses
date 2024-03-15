@@ -1,38 +1,43 @@
 import { useState } from "react";
+import YouTube from 'react-youtube';
 
-import video1 from "../../assets/video1.mp4";
-import video2 from "../../assets/video2.mp4";
 import styles from "./CourseContent.module.scss";
 
 // Import all video files from the assets folder
-const importVideos = require.context('../../assets', false, /\.(mp4)$/);
 
-const CoursesContent = () => {
-  const videosArray = [video1, video2];
+const CoursesContent = (props) => {
+  const {data} = props;
+  const videosArray = data ? data.items : []
 
-  const videoTitles = videosArray.map(el => {
-    const title = el.toString().split("/").pop().split(".")[0]
-    return title
-  })
+  const videoTitles  = data && data.items ? data.items.map(item => item.snippet.title) : []
   const [currentVideo, setCurrentVideo] = useState(0)
-  const [play, setPlay] = useState(false)
+
 
   const handlePrevious = () => {
     if(currentVideo !== 0) {
       setCurrentVideo(currentVideo - 1)
     }
   }
-
+  
   const handleNext = () => {
-    if(currentVideo < (importVideos.keys().length -1)) {
+    if(currentVideo < (videosArray.length -1)) {
       setCurrentVideo(currentVideo + 1)
     }
   }
+
+  const opts = {
+    // height: '200',
+    // width: '100%',
+    playerVars: {
+        autoplay: 0
+    }
+  };
+
   return (
     <div>
       <section className={styles.playlistSection}>
         <ul>
-          {videoTitles.map((title, index)  => {
+          {videoTitles && videoTitles.length && videoTitles.map((title, index)  => {
             return (
               <li key={index}>
                 <div className={styles.playlist}>
@@ -43,59 +48,16 @@ const CoursesContent = () => {
               </li>
             )
           })}
-          {/* {importVideos.keys().map((videoPath, index)  => {
-            const originalFileName = videoPath.match(/[^/]+$/)[0]; // Extracts the file name from the path
-            const videoTitle = originalFileName.replace(/\.[^.]+$/, ''); // Removes the file extension
-            return (
-              <li key={index}>
-                <div className={styles.playlist}>
-                  <button>{index + 1}</button>
-                  <p>{videoTitle}</p>
-                  <button className={styles.roundBtn}></button>
-                </div>
-              </li>
-            )
-          })} */}
         </ul>
       </section>
-      {/* <div>
-        {
-          importVideos.keys().map((videoPath, index) => {
-            if(index === currentVideo) {
-              return (
-                <>
-                  <video controls autoplay={false} mutes={false} key={index}>
-                    <source src={importVideos(videoPath).default} type="video/mp4" />
-                  </video>
-                  <video
-                    src={videoPath}
-                    autoPlay={play} // Start playing if play state is true
-                    muted={false}
-                    controls
-                    className={styles.thumbImage}
-                    alt="/videoThumb.png"
-                  ></video>
-                </>
-              )
-            }
-            return <></>
-          })
-        }
-      </div> */}
       <div>
         {
-          videosArray.map((videoPath, index) => {
+          videosArray && videosArray.map((video, index) => {
             if(index === currentVideo) {
+              const vId = video && video.snippet &&  video.snippet.resourceId && video.snippet.resourceId.videoId
               return (
                 <>
-                  <video
-                    src={videoPath}
-                    autoPlay={play} // Start playing if play state is true
-                    muted={false}
-                    controls
-                    className={styles.thumbImage}
-                    alt="/videoThumb.png"
-                  ></video>
+                {vId ? <YouTube videoId={vId} opts={opts} /> : ""}
                 </>
               )
             }

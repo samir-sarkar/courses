@@ -1,29 +1,41 @@
 import { LiaArrowCircleRightSolid } from "react-icons/lia";
 // import { FaRegPlayCircle } from "react-icons/fa";
+import YouTube from 'react-youtube';
 
 import video1 from "../../assets/video1.mp4";
 import styles from "./SideContent.module.scss";
 import { useState } from "react";
 
-const SideContent = () => {
+const SideContent = (props) => {
+  const {data} = props
   const [play,] = useState(false);
+  const videoId = data && data.items && data.items[0] && data.items[0].snippet && data.items[0].snippet.resourceId && data.items[0].snippet.resourceId.videoId
 
   // const handleVideoPlay = () => {
   //   setPlay(!play); // Toggle the play state
   // };
 
+  const opts = {
+      height: '200',
+      width: '100%',
+      playerVars: {
+          autoplay: 0
+      }
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.innerWrapper}>
         <div className={styles.videoContainer}>
-          <video
+          {videoId && <YouTube videoId={videoId} opts={opts} />}
+          {/* <video
             src={video1}
             autoPlay={play} // Start playing if play state is true
             muted={false}
             controls
             className={styles.thumbImage}
             alt="/videoThumb.png"
-          ></video>
+          ></video> */}
           {/* <div className={styles.playBtn} onClick={handleVideoPlay}>
             <FaRegPlayCircle />
           </div> */}
