@@ -1,14 +1,317 @@
+.container {
+  background-color: #ffffff;
+  display: flex;
+
+}
+
+.playlistSection {
+}
 
 .playlist {
   display: flex;
-  padding: 12px;
+  width: 340px;
+  padding: 15px;
   gap: 10px;
+  cursor: pointer;
+
+}
+.activeItem {
+  background-color: #eff9ff;
+}
+
+.progressBarOuter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0%;
+
+  p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}
+
+.progressBar {
+  background: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  display: block;
+  height: 30px;
+  width: 100%; // Optional: Add border for better visibility
+  margin-bottom: 4px;
+
+  .progress {
+    height: 100%;
+    background-color: #244dcb;
+  }
+}
+
+.itemCount {
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  border: 1px solid  rgba(54, 69, 79, .5);
+  border-radius: 5px;
+  background-color: rgba(54, 69, 79, .5);
+  cursor: pointer;
+}
+
+.selected {
+  color: #fff;
+  border: 1px solid  rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 
+
 .roundBtn {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #3d37ed;
+  display: flex;
+  height: 27px;
+  justify-content: center;
+  align-items: center;
+  width: 27px;
+  box-sizing: border-box;
+  border: 2px solid #ededed;
+  border-radius: 50%; /* Makes the button round */
+  background-color: #fff;
+  cursor: pointer; /* Show pointer cursor on hover */
+  
+}
+
+.active {
+  border: 2px solid #244dcb;
+}
+
+.completed {
+  border: 2px solid #244dcb;
+  background-color: #244dcb;
+  color: #fff;
+
+  svg {
+    height: 16px;
+    width: 16px;
+    fill: #fff;
+  }
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7;
+  gap: 12px;
+}
+
+.mediasSection {
+  padding: 30px 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mediaControl {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.icnBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  color: #fff;
+  border-color: #244dcb;
+  
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  background-color: #0d4df1;
+  border: 1px solid #0d4df1;
+  border-radius: 5px;
+  padding: 8px 10px;
+
+
+  svg {
+    height: 20px;
+    width: 20px;
+    color: inherit;
+    margin-right: 5px;
+  }
+}
+
+
+.blueBtnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-left: 20px;
+}
+
+.blueBtn {
+  background-color: #0d4df1;
+  border-color: #0d4df1;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 7px;
+  padding: 12px 40px;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  span {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.controllerNav {
+  display: flex;
+  align-items: flex-start;
+}
+.greyBtn {
+  padding: 5px 20px 5px 10px ;
+  background-size: 12px 12px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 98px;
+  text-align: center;
+  border: none;
+  color: #000;
+  position: relative;
+
+  span {
+    margin: 0;
+    padding: 0;
+  }
+  svg {
+    position: absolute;
+    right: 10px;
+    top: 8px
+  }
+  
+}
+
+.media {
+  object-fit: cover;
+}
+
+.mediaInfo {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ededed;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: inherit;
+  gap: 15px;
+  flex-wrap: wrap; 
+  width: 100%;
+
+  .infoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .infoCount {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 140%;
+    }
+
+    .complete {
+      display: flex;
+      flex-direction: column;
+      
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        vertical-align: baseline;
+        background: none;
+        svg {
+          height: 20px;
+          width: 20px;
+          color: #0d4df1;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .infoTitle {
+    background: transparent;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 15px;
+
+    h1 {
+      max-width: 600px;
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 1.05;
+    }
+  }
+  
+
+  .undoComplete {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 140%;
+    border: none;
+    background: none repeat scroll 0 0 transparent;
+    cursor: pointer;
+    align-self: flex-end;
+    padding: 0;
+    text-decoration: underline;
+  }
+}
+
+.text2, .text2 h3  {
+  font-size: 16px !important;
+  line-height: 1.25;
+  font-weight: 600;
+  color: #6f7074;
+}
+
+.badge {
+  margin-left: 5px;
+  padding: 0 5px;
+  font-size: 10px;
+  line-height: 1.25;
+  font-weight: 700;
+  font-weight: 5000;
+  text-transform: uppercase !important;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #ffca65;
+}
+
+.text3 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 140%;
+  color: #6f7074;
+  // padding: 0;
+  // margin: 0;
 }

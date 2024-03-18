@@ -1,4 +1,4 @@
-import Home from "./Pages/Home/Home";
+// import Home from "./Pages/Home/Home";
 import CoursesContent from "./Pages/CourseContent/CourseContent";
 
 import './App.scss';
@@ -22,7 +22,7 @@ const App = () => {
                       part: 'snippet',
                       playlistId: playlistId,
                       maxResults: 50, // Maximum number of videos to fetch (adjust as needed)
-                      key: "AIzaSyBDEfO4CIj7Vg1ld_vRGATimN4fi7XuFfE" // Replace with your YouTube API key
+                      key: process.env.REACT_APP_YOUTUBE_API_KEY //  your YouTube API key
                   }
               });
               console.log(response.data);
@@ -33,22 +33,10 @@ const App = () => {
       }
       fetchPlaylistData();
   }, []);
-
-  // useEffect(() => {
-  //   const fetchPlaylistData = async () => {
-  //       try {
-  //           const response = await axios.get('/sampleData.json'); // Adjust the path as needed
-  //           setPlaylistData(response.data);
-  //       } catch (error) {
-  //           console.error('Error fetching playlist data:', error);
-  //       }
-  //   };
-  //   fetchPlaylistData();
-  // }, []);
   return (
     <>
       {/* <PlaylistComponent /> */}
-      <Home data={playlistData}/>
+      {/* <Home data={playlistData}/> */}
       <CoursesContent data={playlistData}/>
     </>
   )
